@@ -28,7 +28,7 @@ body {
 :root {
   @include mat.table-overrides((
     background-color: #f5f6f3,
-    header-headline-color: #ffffff,
+    header-headline-color: #000000,
     header-headline-weight: 600,
     header-container-height: 56px,
     row-item-label-text-color: #1e5351,

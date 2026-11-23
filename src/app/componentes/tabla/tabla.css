@@ -1,9 +1,54 @@
-.botones_rojos{
-    background-color: rgb(203, 57, 57);
-    color: aliceblue;
+:host {
+  display: block;
+
+  --verde-azulado: #207871;
+  --naranja:       #db904d;
+  --verde-hoja:    #eaf2e0;
+  --verde-hover:   #cfe5cb;
+}
+
+.table-container {
+  overflow: auto;
+  border: 2px solid var(--naranja);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
+}
+
+/* Títulos de la tabla */
+.mat-mdc-header-row {
+  background-color: var(--verde-hoja);
+}
+
+.mat-mdc-header-cell {
+  color: #000000 !important;
+  font-weight: 600;
+  white-space: nowrap;
+  border-bottom: 4px solid var(--naranja);
+}
+
+.mat-mdc-row:nth-child(even) {
+  background-color: var(--verde-hoja);
+}
+
+.mat-mdc-row:hover {
+  background-color: var(--verde-hover);
+}
+
+.descripcion {
+  min-width: 260px;
+}
+
+.vacio {
+  color: #8a8a8a;
+  font-style: italic;
+}
+
+.botones_rojos {
+  background-color: rgb(203, 57, 57);
+  color: aliceblue;
 }
