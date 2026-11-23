@@ -1,3 +1,4 @@
+import { API_URL } from './api.config';
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -9,7 +10,7 @@ const CLAVE_SESION = 'user';
 export class AuthService {
   private http = inject(HttpClient);
   private router = inject(Router);
-  private readonly url = 'http://localhost:3000/api/v1/login';
+  private readonly url = `${API_URL}/login`;
 
   /** Llama al backend; si responde true guarda la sesión. */
   login(usuario: string, contrasena: string): Observable<boolean> {

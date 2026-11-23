@@ -1,3 +1,4 @@
+import { API_URL } from './api.config';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -7,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class AccesoriosService {
 
-  private readonly url = 'http://localhost:3000/api/v1/accesorios';
+  private readonly url = `${API_URL}/accesorios`;
 
   constructor(private http: HttpClient) {}
 

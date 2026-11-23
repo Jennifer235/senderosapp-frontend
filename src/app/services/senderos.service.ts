@@ -1,3 +1,4 @@
+import { API_URL } from './api.config';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -7,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class SenderosService {
 
-  private readonly url = 'http://localhost:3000/api/v1/senderos';
+  private readonly url = `${API_URL}/senderos`;
 
   constructor(private http: HttpClient) {}
 
