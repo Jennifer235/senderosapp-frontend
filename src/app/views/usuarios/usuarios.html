@@ -1,0 +1,9 @@
+<h2>Usuarios</h2>
+
+@if (cargando) {
+  <p>Cargando los usuarios...</p>
+} @else if (error) {
+  <p class="error">{{ error }}</p>
+} @else {
+  <app-tabla [data]="data"></app-tabla>
+}

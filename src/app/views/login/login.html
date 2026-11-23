@@ -1,0 +1,26 @@
+<div class="contenedor">
+  <form [formGroup]="form" (ngSubmit)="Loguear()">
+    <h2>Senderosapp</h2>
+    <p class="subtitulo">Inicia sesión para continuar</p>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="user" />
+      <mat-error *ngIf="form.get('user')?.hasError('required')">Ingrese su correo</mat-error>
+      <mat-error *ngIf="form.get('user')?.hasError('email')">Correo inválido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Contraseña</mat-label>
+      <input matInput type="password" formControlName="password" />
+      <mat-error *ngIf="form.get('password')?.hasError('required')">Ingrese su contraseña</mat-error>
+      <mat-error *ngIf="form.get('password')?.hasError('minlength')">Mínimo 6 caracteres</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid || cargando">
+      {{ cargando ? 'Ingresando...' : 'Ingresar' }}
+    </button>
+
+    <p class="registro">¿No tienes cuenta? <a routerLink="/registro">Regístrate</a></p>
+  </form>
+</div>

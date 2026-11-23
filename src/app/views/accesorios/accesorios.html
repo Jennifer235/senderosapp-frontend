@@ -1,0 +1,9 @@
+<h2>Accesorios</h2>
+
+@if (cargando) {
+  <p>Cargando los accesorios...</p>
+} @else if (error) {
+  <p class="error">{{ error }}</p>
+} @else {
+  <app-tabla [data]="data"></app-tabla>
+}

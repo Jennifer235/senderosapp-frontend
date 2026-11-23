@@ -1,0 +1,66 @@
+<form [formGroup]="form" (ngSubmit)="Registrar()">
+  <h2>Registrarse</h2>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Nombre</mat-label>
+    <input matInput formControlName="nombre" />
+    @if (form.get('nombre')?.hasError('required')) {
+      <mat-error>ingrese su nombre</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Apellido</mat-label>
+    <input matInput formControlName="apellido" />
+    @if (form.get('apellido')?.hasError('required')) {
+      <mat-error>ingrese su apellido</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput type="email" formControlName="email" />
+    @if (form.get('email')?.hasError('required')) {
+      <mat-error>ingrese su correo</mat-error>
+    } @else if (form.get('email')?.hasError('email')) {
+      <mat-error>Correo inválido</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Teléfono (opcional)</mat-label>
+    <input matInput type="tel" formControlName="telefono" />
+    @if (form.get('telefono')?.hasError('pattern')) {
+      <mat-error>Solo números, de 7 a 20 dígitos</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Contraseña</mat-label>
+    <input matInput type="password" formControlName="contrasena" />
+    @if (form.get('contrasena')?.hasError('required')) {
+      <mat-error>ingrese contraseña</mat-error>
+    } @else if (form.get('contrasena')?.hasError('minlength')) {
+      <mat-error>Mínimo 6 caracteres</mat-error>
+    } @else if (form.get('contrasena')?.hasError('maxlength')) {
+      <mat-error>Máximo 20 caracteres</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Confirmar contraseña</mat-label>
+    <input matInput type="password" formControlName="confirmar" />
+    @if (form.get('confirmar')?.hasError('required')) {
+      <mat-error>confirme la contraseña</mat-error>
+    }
+  </mat-form-field>
+  @if (form.hasError('noCoinciden') && form.get('confirmar')?.touched) {
+    <p class="error-confirmar">Las contraseñas no coinciden</p>
+  }
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+    Registrarse
+  </button>
+
+  <p class="volver">¿Ya tienes cuenta? <a routerLink="/login">Inicia sesión</a></p>
+</form>

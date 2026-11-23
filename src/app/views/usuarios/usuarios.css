@@ -1,0 +1,38 @@
+:host {
+  display: block;
+  padding: 24px;
+
+  --verde-azulado: #207871;
+  --naranja:       #db904d;
+  --verde-hoja:    #eaf2e0;
+  --verde-hover:   #cfe5cb;
+}
+
+.mat-mdc-header-row {
+  background-color: var(--verde-azulado);
+  border-bottom: 4px solid var(--naranja);
+}
+
+.mat-mdc-row:nth-child(even) {
+  background-color: var(--verde-hoja);
+}
+
+.mat-mdc-row:hover {
+  background-color: var(--verde-hover);
+}
+
+.table-container {
+  overflow: auto;
+  border: 2px solid var(--naranja);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+table {
+  width: 100%;
+}
+
+.error {
+  color: #b3261e;
+  font-weight: 600;
+}
